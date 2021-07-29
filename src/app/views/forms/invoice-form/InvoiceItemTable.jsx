@@ -61,11 +61,11 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                                         align="left"
                                     >
                                         <div className="flex items-center">
-                                            <img
+                                            {/* <img
                                                 className="w-48"
                                                 src={item?.imgUrl}
                                                 alt=""
-                                            />
+                                            /> */}
                                             <Autocomplete
                                                 className="w-full"
                                                 size="small"
@@ -151,8 +151,8 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                                                         }
                                                         onChange={handleChange}
                                                     >
-                                                        <MenuItem value="$">
-                                                            $
+                                                        <MenuItem value="AED">
+                                                            AED
                                                         </MenuItem>
                                                         <MenuItem value="%">
                                                             %

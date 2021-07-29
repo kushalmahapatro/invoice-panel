@@ -12,11 +12,13 @@ import formsRoutes from './views/forms/FormsRoutes'
 import mapRoutes from './views/map/MapRoutes'
 
 
+
+
 const redirectRoute = [
     {
         path: '/',
         exact: true,
-        component: () => <Redirect to="/dashboard/default" />,
+        component: () => <Redirect to="/dashboard" />,
     },
 ]
 
@@ -25,6 +27,7 @@ const errorRoute = [
         component: () => <Redirect to="/session/404" />,
     },
 ]
+
 
 const routes = [
     ...dashboardRoutes,

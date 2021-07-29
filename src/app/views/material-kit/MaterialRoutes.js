@@ -58,7 +58,8 @@ const materialRoutes = [
     {
         path: '/material/snackbar',
         component: React.lazy(() => import('./snackbar/AppSnackbar')),
-    },
+    }
 ]
+   
 
 export default materialRoutes

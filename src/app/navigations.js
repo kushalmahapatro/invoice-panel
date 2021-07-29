@@ -7,6 +7,21 @@ export const navigations = [
         icon: 'dashboard',
     },
     {
+        name: 'Job Sheet',
+        path: '/jobsheet',
+        icon: 'wallpaper',
+    },
+    {
+        name: 'Invoice',
+        path: '/invoice',
+        icon: 'laptop',
+    },
+    {
+        name: 'Customers',
+        path: '/customers',
+        icon: 'verified_user',
+    },
+    {
         label: 'Pages',
         type: 'label',
     },
