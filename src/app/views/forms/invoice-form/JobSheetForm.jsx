@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
+// import { SimpleCard } from 'app/components'
 import {
     Grid,
     Card,
@@ -16,6 +17,7 @@ import {
 import DateFnsUtils from '@date-io/date-fns'
 import InvoiceItemTable from './InvoiceItemTable'
 import { calculateAmount } from './InvoiceFormService'
+import CreateCustomerDialog from './CreateCustomerDialog'
 
 const InvoiceForm = () => {
     const calculateSubTotal = (itemList = []) => {
@@ -70,7 +72,10 @@ const InvoiceForm = () => {
                                     Customer Name
                                 </Grid>
                                 <Grid item md={10} sm={8} xs={12}>
-                                    <div className="flex flex-wrap m--2">
+                                    <div
+                                        className="flex flex-wrap m--2"
+                                        spacing={10}
+                                    >
                                         <TextField
                                             className="min-w-188"
                                             label="Name"
@@ -90,14 +95,9 @@ const InvoiceForm = () => {
                                                 </MenuItem>
                                             ))}
                                         </TextField>
-
-                                        <Button
-                                            color="primary"
-                                            variant="contained"
-                                            type="newCustomer"
-                                        >
-                                            Create new Customer{' '}
-                                        </Button>
+                                        <span style={{ paddingLeft: '20px' }}>
+                                            <CreateCustomerDialog />{' '}
+                                        </span>
                                     </div>
                                 </Grid>
 
