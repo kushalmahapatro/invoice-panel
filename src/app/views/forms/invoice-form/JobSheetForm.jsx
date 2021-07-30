@@ -89,9 +89,15 @@ const InvoiceForm = () => {
                                             {customerList.map((item, ind) => (
                                                 <MenuItem
                                                     value={item}
-                                                    key={item}
+                                                    key={item.number}
                                                 >
-                                                    {item}
+                                                    <div>
+                                                        <div>{item.name}</div>
+                                                        <div>{item.number}</div>
+                                                        <div>
+                                                            <Divider />
+                                                        </div>
+                                                    </div>
                                                 </MenuItem>
                                             ))}
                                         </TextField>
@@ -447,14 +453,10 @@ const InvoiceForm = () => {
 // ]
 
 const customerList = [
-    'customer 1',
-    'customer 2',
-    'customer 3',
-    'customer 4',
-    'customer 5',
-    'customer 6',
-    'customer 7',
-    'customer 8',
+    { number: '0521104369', name: 'kushal Mahapatro' },
+    { number: '0521104360', name: 'Umesh Kumar Mahato' },
+    { number: '0521104362', name: 'Piyush Kunar Shawarya' },
+    { number: '0521104363', name: 'Nishant Gupta' },
 ]
 
 const initialValues = {
