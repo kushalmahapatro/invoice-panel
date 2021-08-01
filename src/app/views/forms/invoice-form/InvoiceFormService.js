@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const calculateAmount = (item) => {
-    if (!item.discount) return item.price * item.quantity || 0
+    if (!item.discount) return (item.price || 0 ) * (item.quantity || 1) 
 
     if (item.discountType === 'AED') {
         let total = item.price * item.quantity

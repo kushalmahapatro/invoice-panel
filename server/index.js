@@ -6,6 +6,7 @@ import cors from 'cors';
 import postRoutes from './routes/posts.js';
 import accessRoutes from './routes/access.js';
 import customerRoutes from './routes/customers.js';
+import invoiceRoutes from './routes/invoice.js';
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/access', accessRoutes);
 app.use('/customer', customerRoutes);
+app.use('/invoice', invoiceRoutes);
 
 
 // const CONNECTION_URL = 'mongodb+srv://js_mastery:123123123@practice.jto9p.mongodb.net/test';

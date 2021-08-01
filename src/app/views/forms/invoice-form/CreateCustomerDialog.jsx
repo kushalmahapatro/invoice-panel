@@ -12,6 +12,8 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
+
+
 // import FormControl from '@material-ui/core/FormControl'
 // import FormControlLabel from '@material-ui/core/FormControlLabel'
 // import InputLabel from '@material-ui/core/InputLabel'
@@ -46,7 +48,6 @@ export default function CreateCustomerDialog() {
     // const classes = useStyles()
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [date, setDate] = useState(new Date())
     const [fullWidth /* setFullWidth */] = useState(true)
     const [maxWidth /* setMaxWidth */] = useState('sm')
 
@@ -59,6 +60,7 @@ export default function CreateCustomerDialog() {
         }
         setOpenSnack(false)
     }
+
     // snackbar thingies end
 
     const validateSchema = Yup.object().shape({
@@ -106,9 +108,9 @@ export default function CreateCustomerDialog() {
         const { status, data } = result
         if (data._id) {
             console.log('success')
-            setSnackMessage('customer save success!')
+            setSnackMessage('New Customer Added')
         } else {
-            setSnackMessage('customer save success!')
+            setSnackMessage('Failed to add new customer')
         }
         setOpenSnack(true)
         console.log('result', status, data)
@@ -127,11 +129,11 @@ export default function CreateCustomerDialog() {
             {loading && <Loading />}
             <Snackbar
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                    vertical: 'bottom',
+                    horizontal: 'left',
                 }}
                 open={openSnack}
-                autoHideDuration={6000}
+                autoHideDuration={3000}
                 onClose={handleCloseSnack}
                 message={snackMessage}
                 action={

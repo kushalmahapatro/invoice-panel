@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React /* useState  useEffect */ from 'react'
 import {
     Table,
     TableHead,
@@ -13,20 +13,20 @@ import {
     MenuItem,
 } from '@material-ui/core'
 import { FieldArray } from 'formik'
-import { Autocomplete } from '@material-ui/lab'
-import { getProductList, calculateAmount } from './InvoiceFormService'
+// import { Autocomplete } from '@material-ui/lab'
+import { /* getProductList, */ calculateAmount } from './InvoiceFormService'
 
 const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
-    const [isAlive, setIsAlive] = useState(true)
-    const [productList, setProductList] = useState([])
+    // const [isAlive, setIsAlive] = useState(true)
+    // const [productList, setProductList] = useState([])
 
-    useEffect(() => {
-        getProductList().then(({ data }) => {
-            if (isAlive) setProductList(data)
-        })
+    // useEffect(() => {
+    //     getProductList().then(({ data }) => {
+    //         if (isAlive) setProductList(data)
+    //     })
 
-        return () => setIsAlive(false)
-    }, [isAlive])
+    //     return () => setIsAlive(false)
+    // }, [isAlive])
 
     return (
         <FieldArray name="items">
@@ -36,8 +36,8 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell colSpan={7}>Item Details</TableCell>
-                                <TableCell colSpan={2}>Quantity </TableCell>
                                 <TableCell colSpan={2}>Rate</TableCell>
+                                <TableCell colSpan={2}>Quantity </TableCell>
                                 <TableCell colSpan={2}>Discount</TableCell>
                                 <TableCell colSpan={2} align="center">
                                     Amount
@@ -66,7 +66,7 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                                                 src={item?.imgUrl}
                                                 alt=""
                                             /> */}
-                                            <Autocomplete
+                                            {/* <Autocomplete
                                                 className="w-full"
                                                 size="small"
                                                 options={productList}
@@ -88,25 +88,19 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                                                         },
                                                     })
                                                 }}
+                                            /> */}
+
+                                            <TextField
+                                                name={`items[${ind}].name`}
+                                                size="small"
+                                                variant="outlined"
+                                                fullWidth
+                                                defaultValue={item.name || ''}
+                                                onChange={handleChange}
                                             />
                                         </div>
                                     </TableCell>
 
-                                    <TableCell
-                                        colSpan={2}
-                                        className="p-0"
-                                        align="left"
-                                    >
-                                        <TextField
-                                            name={`items[${ind}].quantity`}
-                                            size="small"
-                                            variant="outlined"
-                                            type="number"
-                                            fullWidth
-                                            defaultValue={item.quantity || ''}
-                                            onChange={handleChange}
-                                        />
-                                    </TableCell>
                                     <TableCell
                                         colSpan={2}
                                         className="p-0"
@@ -119,6 +113,21 @@ const InvoiceItemTable = ({ values, handleChange, setFieldValue }) => {
                                             type="number"
                                             fullWidth
                                             value={item.price || ''}
+                                            onChange={handleChange}
+                                        />
+                                    </TableCell>
+                                    <TableCell
+                                        colSpan={2}
+                                        className="p-0"
+                                        align="left"
+                                    >
+                                        <TextField
+                                            name={`items[${ind}].quantity`}
+                                            size="small"
+                                            variant="outlined"
+                                            type="number"
+                                            fullWidth
+                                            defaultValue={item.quantity || 1}
                                             onChange={handleChange}
                                         />
                                     </TableCell>
